@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { ComposerProvider } from './context/ComposerContext';
+import { GlobalStyles } from './styles/GlobalStyles';
+import UploadPanel from './components/UploadPanel';
+import TextPanel from './components/TextPanel';
+import MovementControls from './components/MovementControls';
+import CoordinatesPanel from './components/CoordinatesPanel';
+import ImageCanvas from './components/ImageCanvas';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ComposerProvider>
+      <GlobalStyles />
+      <div style={{ padding: '20px', textAlign: 'center' }}>
+        <h2>🛍️ Shop Image Composer</h2>
+        <UploadPanel />
+        <TextPanel />
+        <MovementControls />
+        <CoordinatesPanel />
+        <ImageCanvas />
+      </div>
+    </ComposerProvider>
   );
 }
 
